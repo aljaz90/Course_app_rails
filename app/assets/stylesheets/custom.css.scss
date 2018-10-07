@@ -1,1 +1,24 @@
 @import "materialize";
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+}
+
+main {
+flex: 1 0 auto;
+}
+
+nav,footer, .btn-floating {
+    background: #00c6ff;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(#0072ff, #00c6ff);
+    background: -moz-linear-gradient(#0072ff, #00c6ff);
+    background: -o-linear-gradient(#0072ff, #00c6ff);
+    background: linear-gradient(#0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
