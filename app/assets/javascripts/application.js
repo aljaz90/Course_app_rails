@@ -17,6 +17,7 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
+    $(".spinner").hide();
     $(".dropdown-trigger").dropdown({
         coverTrigger: false,
         hover: true
@@ -24,6 +25,6 @@ $(document).on('turbolinks:load', function(){
     $('.sidenav').sidenav();
 });
 
-
-
-        
+$(document).on("turbolinks:click", function(){
+  $(".spinner").show();
+});
