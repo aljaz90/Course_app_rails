@@ -10,14 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//
+//
 //= require rails-ujs
 //= require jquery
 //= require materialize
+//= require sweetalert2
+//= require sweet-alert2-rails
 //= require turbolinks
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
-    $(".spinner").hide();
+//    $(".loading").hide();
+    // $(".progress").hide();
     $(".dropdown-trigger").dropdown({
         coverTrigger: false,
         hover: true
@@ -25,6 +30,7 @@ $(document).on('turbolinks:load', function(){
     $('.sidenav').sidenav();
 });
 
-$(document).on("turbolinks:click", function(){
-  $(".spinner").show();
-});
+// $(document).on("page:fetch", function(){
+//   $(".progress").show();
+// });
+

@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
 gem 'jquery-rails'
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'sweet-alert2-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
