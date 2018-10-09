@@ -31,4 +31,13 @@
     <li><a href="#">Courses</a></li>
     <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
   </ul>
+  <% flash.each do |key, message| %>
+      <script>
+        swal(
+          'Info',
+          '<%= message %>',
+          '<%= key %>'
+        )
+      </script>
+    <% end %>
 </header>

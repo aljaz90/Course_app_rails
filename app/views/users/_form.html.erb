@@ -1,0 +1,79 @@
+<div class="signup">
+    <% if @user.errors.any? %>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red lighten-2">
+              <span class="white-text">
+        <strong><%= pluralize(@user.errors.count, "Error") %></strong>
+              Prohibited your Account from being <%= @user.new_record? ? "Created" : "Updated" %>:
+              <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+              </ul>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="row">
+        <div class="col s12">
+            <h3 class="center-align"><%= @user.new_record? ? "Sign up!" : "Update Account" %></h3>
+        </div>
+    </div>
+    <div class="row">
+        <%= form_for @user, :class => "col s12" do |f| %>
+          <div class="row">
+            <div class="input-field col s6">
+              <%= f.text_field :first_name, :id => "first_name", :required => true, :class => "validate" %>
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <%= f.text_field :last_name, :id => "last_name", :required => true, :class => "validate" %>
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="input-field col s12">
+              <%= f.email_field :email, :id => "email_inline", :required => true, :class => "validate" %>
+              <label for="email_inline">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <%= f.password_field :password, id: "password", class: "validate" %>
+              <label for="password">Password</label>
+            </div>
+            <div class="input-field col s6">
+              <%= f.password_field :password_confirmation, id: "password-c", class: "validate", oninput: "check(this)" %>
+              <label for="password-c">Password Confirmation</label>
+            </div>
+          </div>
+          <div class="row">
+            <% if @user.new_record? %>
+              <p class="col s6">
+                <label>
+                    <input type="checkbox" class="filled-in" required="true" />
+                    <span>I agree to terms and conditions.</span>
+                </label>
+              </p>
+            <% end %>
+              <div class="input-field col s6">
+                  <%= f.button(@user.new_record? ? "Sign Up" : "Update", type: :submit, :class => "waves-effect waves-light btn signup-btn", :style => "background-color: #0087ff;") %>
+              </div>
+          </div>
+        <% end %>
+    </div>
+</div>
+<script language='javascript' type='text/javascript'>
+    function check(input) {
+        if (input.value != document.getElementById('password').value) {
+            input.setCustomValidity('Password Must be Matching.');
+        } else {
+            input.setCustomValidity('');
+        }
+    }
+</script>
