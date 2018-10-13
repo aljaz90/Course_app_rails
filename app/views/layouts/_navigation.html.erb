@@ -19,8 +19,13 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><%= link_to "Home", root_path %></li>
           <li><a href="#">Courses</a></li>
+          <% if logged_in? %>
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
-          <li><%= link_to "Test",new_user_path, data: { confirm: 'Are you sure?' } %></li>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to "Log In", login_path %></li>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -29,7 +34,13 @@
   <ul class="sidenav" id="mobile-demo">
     <li><%= link_to "Home", root_path %></li>
     <li><a href="#">Courses</a></li>
-    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+    <% if logged_in? %>
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><%= link_to "Logout", logout_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Log In", login_path %></li>
+      <li><%= link_to "Sign Up", new_user_path %></li>
+    <% end %>
   </ul>
   <% flash.each do |key, message| %>
       <script>
