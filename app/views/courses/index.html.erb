@@ -12,7 +12,11 @@
           <div class="card-image">
             <img src="<%=course.image%>">
             <span class="card-title"><%=course.name%></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light"><i class="material-icons">add</i></a>
+            <% if !current_user || !(current_user.courses.include?(course))  %>
+              <%= link_to '<i class="material-icons">add</i>'.html_safe, course_enroll_path(course_id: course.id), class: "btn-floating halfway-fab waves-effect waves-light", method: :post %>
+            <% else %>
+              <%= link_to '<i class="material-icons">play_arrow</i>'.html_safe, "#", class: "btn-floating halfway-fab waves-effect waves-light" %>
+            <% end %>
           </div>
           <div class="card-content">
             <p><%=course.description%></p>
@@ -21,5 +25,6 @@
       </div>
     <% end %>
 </div>
+
 
 
